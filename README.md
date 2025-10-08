@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Anjos da Madrugada - Lauzane
+
+This is a Next.js project for the Anjos da Madrugada - Lauzane social action. The project is designed to be a simple and easy-to-use website to display information about the social action, including the next actions, how to contribute, and how to get in touch.
 
 ## Getting Started
 
@@ -16,18 +18,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Google Sheets Integration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses Google Sheets as a data source for the "Próximas Ações" section. To use this feature, you will need to provide the following:
 
-## Learn More
+1.  **Google Sheet ID:** The ID of the Google Sheet you want to use as a data source.
+2.  **Google Cloud Credentials:** The credentials to authorize access to the Google Sheet. You can get them from the Google Cloud Console.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Once you have this information, you will need to update the `src/app/lib/sheets.ts` file with the correct values.
 
 ## Deploy on Vercel
 
