@@ -12,7 +12,8 @@ export function initAnimations() {
             block: 'start'
           });
         }
-      });
+      }
+    });
   });
 
   // Animação de fade-in quando elementos entram na viewport
