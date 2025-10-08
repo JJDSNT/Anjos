@@ -3,7 +3,7 @@ import React from 'react';
 import { getSheetData } from '../lib/sheets';
 
 const Acoes: React.FC = async () => {
-  const data = await getSheetData('Acoes!A2:D'); // Example range
+  const data = await getSheetData();
 
   return (
     <section id="proximas-acoes">

@@ -1,34 +1,44 @@
 # Anjos da Madrugada - Lauzane
 
-This is a Next.js project for the Anjos da Madrugada - Lauzane social action. The project is designed to be a simple and easy-to-use website to display information about the social action, including the next actions, how to contribute, and how to get in touch.
+Este é um projeto Next.js para a ação social Anjos da Madrugada - Lauzane. O projeto foi concebido para ser um site simples e fácil de usar para exibir informações sobre a ação social, incluindo as próximas ações, como contribuir e como entrar em contato.
 
-## Getting Started
+## Começando
 
-First, run the development server:
+Primeiro, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
 
-## Google Sheets Integration
+## Integração com o Google Sheets
 
-This project uses Google Sheets as a data source for the "Próximas Ações" section. To use this feature, you will need to provide the following:
+Este projeto usa uma planilha pública do Google como fonte de dados para a seção "Próximas Ações". Para usar este recurso, você precisará fornecer a URL pública da sua planilha do Google em formato CSV.
 
-1.  **Google Sheet ID:** The ID of the Google Sheet you want to use as a data source.
-2.  **Google Cloud Credentials:** The credentials to authorize access to the Google Sheet. You can get them from the Google Cloud Console.
+### Como obter a URL pública da sua planilha do Google
 
-Once you have this information, you will need to update the `src/app/lib/sheets.ts` file with the correct values.
+1.  Abra sua planilha do Google.
+2.  Vá para `Arquivo > Compartilhar > Publicar na web`.
+3.  Na guia `Link`, selecione a planilha que deseja publicar.
+4.  No menu suspenso, selecione `Valores separados por vírgula (.csv)`.
+5.  Clique no botão `Publicar`.
+6.  Copie a URL gerada.
 
-## Deploy on Vercel
+Depois de ter a URL, você precisará atualizar o arquivo `src/app/lib/sheets.ts` com o valor correto na constante `SHEET_URL`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy no Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A maneira mais fácil de implantar seu aplicativo Next.js é usar a [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dos criadores do Next.js.
+
+Confira nossa [documentação de implantação do Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para mais detalhes.
+
+## Trabalho de Extensão
+
+Este repositório é um trabalho de extensão para o curso de Análise e Desenvolvimento de Sistemas da Universidade Cruzeiro do Sul.
