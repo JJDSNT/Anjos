@@ -42,3 +42,7 @@ Confira nossa [documentação de implantação do Next.js](https://nextjs.org/do
 ## Trabalho de Extensão
 
 Este repositório é um trabalho de extensão para o curso de Análise e Desenvolvimento de Sistemas da Universidade Cruzeiro do Sul.
+
+## Uso
+
+Este é um trabalho acadêmico e para utilizar esse sistema é necessário pedir autorização conforme a política da igreja.
