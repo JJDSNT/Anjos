@@ -1,12 +1,7 @@
 const BASE_URL = process.env.SHEET_URL;
 
 const SHEETS_CONFIG = {
-  General: '0',
-  Sobre: '1',
-  Acoes: '2',
-  Local: '3',
-  Contribuir: '4',
-  Instagram: '5',
+  Acoes: '0',
 };
 
 const parseCSV = (csvText: string) => {
@@ -28,5 +23,28 @@ export const getSheetData = async (sheetName: keyof typeof SHEETS_CONFIG) => {
   } catch (error) {
     console.error(`Error fetching or parsing sheet data for ${sheetName}:`, error);
     return [];
+  }
+};
+
+export const getSheetConfig = async () => {
+  const url = `${BASE_URL}gviz/tq?tqx=out:csv&gid=1`; // Assuming gid=1 for Contato tab
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const csvText = await response.text();
+    const lines = parseCSV(csvText);
+    const config = lines.slice(1).reduce((acc, [key, value]) => {
+      if (key) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {} as Record<string, string>);
+    return config;
+  } catch (error) {
+    console.error('Error fetching or parsing sheet config:', error);
+    return {};
   }
 };

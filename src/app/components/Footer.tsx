@@ -1,27 +1,27 @@
-
 import React from 'react';
+import { getSheetConfig } from '../lib/sheets';
 
-const Footer: React.FC = () => {
+const Footer: React.FC = async () => {
+  const config = await getSheetConfig();
+
   return (
     <footer id="contato">
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
             <h4>📧 Contato</h4>
-            <p>Email: anjosdamadrugada@lauzane.com.br</p>
-            <p>WhatsApp: <a href="https://wa.me/5511999999999">(11) 99999-9999</a></p>
+            <p>Email: {config.email || ''}</p>
+            <p>WhatsApp: <a href={config.whatsapp_link || ''}>{config.whatsapp || ''}</a></p>
           </div>
           <div className="footer-section">
             <h4>📍 Igreja Base</h4>
-            <p>Igreja do Lauzane</p>
-            <p>Rua Exemplo, 123 - Lauzane Paulista</p>
-            <p>São Paulo - SP</p>
+            <p>{config.igreja_nome || ''}</p>
+            <p>{config.igreja_endereco || ''}</p>
+            <p>{config.igreja_cidade_estado || ''}</p>
           </div>
           <div className="footer-section">
             <h4>🕐 Encontros</h4>
-            <p>Sábados - 22h00</p>
-            <p>Ponto de encontro na igreja</p>
-            <p>Saída para ação: 23h00</p>
+            <p>{config.encontro_dia_hora || ''}</p>
           </div>
         </div>
         <div className="footer-bottom">

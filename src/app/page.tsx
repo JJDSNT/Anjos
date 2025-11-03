@@ -5,7 +5,7 @@ import Acoes from './components/Acoes';
 import Sobre from './components/Sobre';
 import Local from './components/Local';
 import Contribuir from './components/Contribuir';
-import Contato from './components/Contato';
+import Instagram from './components/Instagram';
 import Footer from './components/Footer';
 import type { Metadata } from "next";
 
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         <Acoes />
         <Local />
         <Contribuir />
-        <Contato />
+        <Instagram />
       </main>
       <Footer />
     </>

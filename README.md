@@ -20,18 +20,18 @@ Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o
 
 ## Integração com o Google Sheets
 
-Este projeto usa uma planilha pública do Google como fonte de dados para a seção "Próximas Ações". Para usar este recurso, você precisará fornecer a URL pública da sua planilha do Google em formato CSV.
+Este projeto usa uma planilha pública do Google como fonte de dados para as seções "Próximas Ações" e "Contato".
 
-### Como obter a URL pública da sua planilha do Google
+### Configurando a Planilha
 
-1.  Abra sua planilha do Google.
-2.  Vá para `Arquivo > Compartilhar > Publicar na web`.
-3.  Na guia `Link`, selecione a planilha que deseja publicar.
-4.  No menu suspenso, selecione `Valores separados por vírgula (.csv)`.
-5.  Clique no botão `Publicar`.
-6.  Copie a URL gerada.
+1.  **Crie um arquivo `.env.local`** na raiz do seu projeto.
+2.  **Adicione a URL da sua planilha** a este arquivo da seguinte forma:
 
-Depois de ter a URL, você precisará atualizar o arquivo `src/app/lib/sheets.ts` com o valor correto na constante `SHEET_URL`.
+    ```
+    SHEET_URL=https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/
+    ```
+
+    Substitua `YOUR_SPREADSHEET_ID` pelo ID da sua planilha.
 
 ### Estrutura da Planilha (Schema)
 
@@ -41,13 +41,31 @@ Para que o site possa ser customizado pela planilha, a mesma deve seguir a segui
 
 ---
 
-**Aba: `Acoes`**
+**Aba: `Acoes` (gid=0)**
 
 Lista das próximas ações sociais.
 
 | data       | hora   | local         | ponto_encontro      | atividade                               |
 | ---------- | ------ | ------------- | ------------------- | --------------------------------------- |
 | DD/MM/AAAA | HH:MM  | Nome do Local | Endereço ou Ponto   | Descrição das atividades                |
+
+---
+
+**Aba: `Contato` (gid=1)**
+
+Informações de contato e configurações gerais (formato propriedade-valor).
+
+| propriedade         | valor                                     |
+| ------------------- | ----------------------------------------- |
+| email               | anjosdamadrugada@lauzane.com.br           |
+| whatsapp            | (11) 99999-9999                           |
+| whatsapp_link       | https://wa.me/5511999999999               |
+| igreja_nome         | Igreja do Lauzane                         |
+| igreja_endereco     | Rua Exemplo, 123 - Lauzane Paulista       |
+| igreja_cidade_estado | São Paulo - SP                            |
+| encontro_dia_hora   | Sábados - 22h00                           |
+| instagram_user      | anjosdamadrugada.lauzane                  |
+| instagram_url       | https://www.instagram.com/anjosdamadrugada.lauzane/ |
 
 
 ## Deploy no Vercel
