@@ -1,4 +1,4 @@
-const BASE_URL = process.env.SHEET_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_SHEET_URL;
 
 const SHEETS_CONFIG = {
   Acoes: '0',

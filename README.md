@@ -28,10 +28,15 @@ Este projeto usa uma planilha pública do Google como fonte de dados para as se�
 2.  **Adicione a URL da sua planilha** a este arquivo da seguinte forma:
 
     ```
-    SHEET_URL=https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/
+    NEXT_PUBLIC_SHEET_URL=https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/
     ```
 
     Substitua `YOUR_SPREADSHEET_ID` pelo ID da sua planilha.
+
+3.  **Para Deploy no GitHub Pages (GitHub Actions):**
+    *   Vá para as configurações do seu repositório no GitHub.
+    *   Navegue até `Settings > Secrets and variables > Actions`.
+    *   Crie um novo "Repository secret" chamado `NEXT_PUBLIC_SHEET_URL` e cole a URL da sua planilha como valor.
 
 ### Estrutura da Planilha (Schema)
 
