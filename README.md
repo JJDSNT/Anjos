@@ -33,6 +33,23 @@ Este projeto usa uma planilha pública do Google como fonte de dados para a seç
 
 Depois de ter a URL, você precisará atualizar o arquivo `src/app/lib/sheets.ts` com o valor correto na constante `SHEET_URL`.
 
+### Estrutura da Planilha (Schema)
+
+Para que o site possa ser customizado pela planilha, a mesma deve seguir a seguinte estrutura de abas e colunas:
+
+**Nome da Planilha:** `AnjosDaMadrugadaContent`
+
+---
+
+**Aba: `Acoes`**
+
+Lista das próximas ações sociais.
+
+| data       | hora   | local         | ponto_encontro      | atividade                               |
+| ---------- | ------ | ------------- | ------------------- | --------------------------------------- |
+| DD/MM/AAAA | HH:MM  | Nome do Local | Endereço ou Ponto   | Descrição das atividades                |
+
+
 ## Deploy no Vercel
 
 A maneira mais fácil de implantar seu aplicativo Next.js é usar a [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dos criadores do Next.js.
