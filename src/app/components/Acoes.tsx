@@ -1,17 +1,16 @@
-
 import React from 'react';
 import { getSheetData } from '../lib/sheets';
 
 const Acoes: React.FC = async () => {
-  const data = await getSheetData();
+  const data = await getSheetData('Acoes');
 
   return (
     <section id="proximas-acoes">
       <div className="container">
         <h2>Próximas Ações</h2>
         <div className="acoes-grid">
-          {data && data.length > 0 ? (
-            data.map((row, index) => (
+          {data && data.length > 1 ? (
+            data.slice(1).map((row, index) => (
               <div className="acao-card fade-in-up" key={index}>
                 <div className="acao-date">{row[0]}</div>
                 <div className="acao-time">⏰ {row[1]}</div>
@@ -24,13 +23,7 @@ const Acoes: React.FC = async () => {
             ))
           ) : (
             <div className="acao-card fade-in-up">
-              <div className="acao-date">Sábado, 04 de Outubro</div>
-              <div className="acao-time">⏰ 23h00</div>
-              <div className="acao-location">📍 Praça Armênia</div>
-              <div className="acao-details">
-                <strong>Ponto de Encontro:</strong> Igreja do Lauzane às 22h00<br />
-                <strong>Atividades:</strong> Distribuição de refeições, oração e evangelização
-              </div>
+              <p>Nenhuma ação agendada no momento. Fique de olho para mais informações!</p>
             </div>
           )}
         </div>
