@@ -9,6 +9,8 @@ import Instagram from './components/Instagram';
 import Footer from './components/Footer';
 import type { Metadata } from "next";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Anjos da Madrugada – Lauzane | Ação Social",
   description: "Ação social que leva amor, cuidado e a Palavra de Deus para pessoas em situação de vulnerabilidade no Lauzane, São Paulo.",
