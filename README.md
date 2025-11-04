@@ -24,8 +24,14 @@ Este projeto usa uma planilha pública do Google como fonte de dados para as se�
 
 ### Configurando a Planilha
 
-1.  **Crie um arquivo `.env.local`** na raiz do seu projeto.
-2.  **Adicione a URL da sua planilha** a este arquivo da seguinte forma:
+1.  **Compartilhamento da Planilha:**
+    *   Abra a sua planilha do Google.
+    *   Clique no botão **Compartilhar** no canto superior direito.
+    *   Na seção **Acesso geral**, altere a configuração de **Restrito** para **Qualquer pessoa com o link**.
+    *   Certifique-se de que o papel está definido como **Leitor**.
+
+2.  **Crie um arquivo `.env.local`** na raiz do seu projeto.
+3.  **Adicione a URL da sua planilha** a este arquivo da seguinte forma:
 
     ```
     NEXT_PUBLIC_SHEET_URL=https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/
@@ -33,7 +39,7 @@ Este projeto usa uma planilha pública do Google como fonte de dados para as se�
 
     Substitua `YOUR_SPREADSHEET_ID` pelo ID da sua planilha.
 
-3.  **Para Deploy no GitHub Pages (GitHub Actions):**
+4.  **Para Deploy no GitHub Pages (GitHub Actions):**
     *   Vá para as configurações do seu repositório no GitHub.
     *   Navegue até `Settings > Secrets and variables > Actions`.
     *   Crie um novo "Repository secret" chamado `NEXT_PUBLIC_SHEET_URL` e cole a URL da sua planilha como valor.
