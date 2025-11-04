@@ -2,6 +2,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SHEET_URL;
 
 const SHEETS_CONFIG = {
   Acoes: '0',
+  Contato: '1',
 };
 
 const parseCSV = (csvText: string) => {
@@ -12,6 +13,7 @@ const parseCSV = (csvText: string) => {
 export const getSheetData = async (sheetName: keyof typeof SHEETS_CONFIG) => {
   const sheetId = SHEETS_CONFIG[sheetName];
   const url = `${BASE_URL}gviz/tq?tqx=out:csv&gid=${sheetId}`;
+  console.log(`Fetching sheet data from: ${url}`);
 
   try {
     const response = await fetch(url);
@@ -19,6 +21,7 @@ export const getSheetData = async (sheetName: keyof typeof SHEETS_CONFIG) => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const csvText = await response.text();
+    console.log("CSV Text Response:", csvText);
     return parseCSV(csvText);
   } catch (error) {
     console.error(`Error fetching or parsing sheet data for ${sheetName}:`, error);
