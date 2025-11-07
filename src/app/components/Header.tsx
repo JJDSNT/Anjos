@@ -3,7 +3,6 @@ import { getSheetConfig } from '../lib/sheets';
 
 const Header: React.FC = async () => {
   const config = await getSheetConfig();
-  console.log('Header config:', config);
 
   return (
     <header>
