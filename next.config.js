@@ -7,6 +7,8 @@ const withPWA = require('next-pwa')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/Anjos',
   // Add other Next.js configurations here
 };
 
