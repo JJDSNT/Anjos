@@ -1,9 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getSheetData } from '../lib/sheets';
 
-const LocalClient: React.FC<{ initialData: string[][] }> = ({ initialData }) => {
-  const [data, setData] = useState(initialData);
+const LocalClient: React.FC = () => {
+  const [data, setData] = useState<string[][]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const newData = await getSheetData('Acoes');
+      setData(newData);
+    };
+    fetchData();
+  }, []);
 
   const nextAction = data && data.length > 1 ? data[1] : null;
   const address = nextAction ? nextAction[2] : 'Lauzane Paulista, São Paulo - SP';

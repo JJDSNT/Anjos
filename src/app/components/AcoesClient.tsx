@@ -1,9 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getSheetData } from '../lib/sheets';
 
-const AcoesClient: React.FC<{ initialData: string[][] }> = ({ initialData }) => {
-  const [data, setData] = useState(initialData);
+const AcoesClient: React.FC = () => {
+  const [data, setData] = useState<string[][]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const newData = await getSheetData('Acoes');
+      setData(newData);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="acoes-grid">

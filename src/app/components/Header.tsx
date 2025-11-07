@@ -1,9 +1,18 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { getSheetConfig } from '../lib/sheets';
 
-const Header: React.FC = async () => {
-  const config = await getSheetConfig();
-  console.log('Header config:', config);
+const Header: React.FC = () => {
+  const [config, setConfig] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      const newConfig = await getSheetConfig();
+      setConfig(newConfig);
+    };
+    fetchConfig();
+  }, []);
 
   return (
     <header>
