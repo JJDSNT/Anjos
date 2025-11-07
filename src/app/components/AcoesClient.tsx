@@ -1,0 +1,31 @@
+'use client';
+
+import React, { useState } from 'react';
+
+const AcoesClient: React.FC<{ initialData: string[][] }> = ({ initialData }) => {
+  const [data, setData] = useState(initialData);
+
+  return (
+    <div className="acoes-grid">
+      {data && data.length > 1 ? (
+        data.slice(1).map((row, index) => (
+          <div className="acao-card fade-in-up" key={index}>
+            <div className="acao-date">{row[0]}</div>
+            <div className="acao-time">⏰ {row[1]}</div>
+            <div className="acao-location">📍 {row[2]}</div>
+            <div className="acao-details">
+              <strong>Ponto de Encontro:</strong> {row[3]}<br />
+              <strong>Atividades:</strong> {row[4]}
+            </div>
+          </div>
+        ))
+      ) : (
+        <div className="acao-card fade-in-up">
+          <p>Nenhuma ação agendada no momento. Fique de olho para mais informações!</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default AcoesClient;
